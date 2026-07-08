@@ -1,0 +1,12 @@
+{
+  "firestore": [
+    {
+      "database": "(default)",
+      "rules": "firestore.rules"
+    },
+    {
+      "database": "ai-studio-atfunding-fc82b33e-08de-4a91-8a7f-2c61f8431ca5",
+      "rules": "firestore.rules"
+    }
+  ]
+}

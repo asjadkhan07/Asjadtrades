@@ -1,0 +1,6 @@
+{
+  "name": "ATFunding",
+  "description": "Premium modern proprietary trading firm platform with interactive MT5-style trading terminal and simulated evaluation challenge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

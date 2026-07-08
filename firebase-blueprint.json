@@ -1,0 +1,160 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile containing roles and KYC details.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "kycStatus": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role", "kycStatus", "createdAt"]
+    },
+    "Account": {
+      "title": "Account",
+      "description": "Trading challenge account.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "challengeConfigId": { "type": "string" },
+        "challengeName": { "type": "string" },
+        "challengeSize": { "type": "number" },
+        "status": { "type": "string" },
+        "phase": { "type": "string" },
+        "balance": { "type": "number" },
+        "initialBalance": { "type": "number" },
+        "peakBalance": { "type": "number" },
+        "startOfDayBalance": { "type": "number" },
+        "dailyDrawdownLimitValue": { "type": "number" },
+        "maxDrawdownLimitValue": { "type": "number" },
+        "payoutSharePercent": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": [
+        "id",
+        "userId",
+        "userEmail",
+        "userName",
+        "challengeConfigId",
+        "challengeName",
+        "challengeSize",
+        "status",
+        "phase",
+        "balance",
+        "initialBalance",
+        "peakBalance",
+        "startOfDayBalance",
+        "dailyDrawdownLimitValue",
+        "maxDrawdownLimitValue",
+        "payoutSharePercent",
+        "createdAt"
+      ]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Payment and challenge purchase order details.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "challengeConfigId": { "type": "string" },
+        "challengeName": { "type": "string" },
+        "challengeSize": { "type": "number" },
+        "amount": { "type": "number" },
+        "couponUsed": { "type": "string" },
+        "discount": { "type": "number" },
+        "finalPrice": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "userEmail", "userName", "challengeConfigId", "challengeName", "challengeSize", "amount", "finalPrice", "status", "createdAt"]
+    },
+    "Trade": {
+      "title": "Trade",
+      "description": "Trading position records.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "accountId": { "type": "string" },
+        "asset": { "type": "string" },
+        "direction": { "type": "string" },
+        "lotSize": { "type": "number" },
+        "entryPrice": { "type": "number" },
+        "currentPrice": { "type": "number" },
+        "profitLoss": { "type": "number" },
+        "status": { "type": "string" },
+        "orderType": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "accountId", "asset", "direction", "lotSize", "entryPrice", "currentPrice", "profitLoss", "status", "orderType", "createdAt"]
+    },
+    "AccountLog": {
+      "title": "AccountLog",
+      "description": "Auditable historic event logs on any account.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "accountId": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "accountId", "message", "type", "timestamp"]
+    }
+  },
+  "firestore": {
+    "system": {
+      "schema": "object",
+      "description": "Global system properties, credentials, and configuration coefficients."
+    },
+    "users": {
+      "schema": "User",
+      "description": "Individual trader credentials, profile configurations, and KYC records."
+    },
+    "accounts": {
+      "schema": "Account",
+      "description": "Prop trading evaluation account instances."
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Historical checkout orders, cryptocurrency logs, and credit receipt details."
+    },
+    "trades": {
+      "schema": "Trade",
+      "description": "Open and closed positions managed by the simulation engine."
+    },
+    "accountLogs": {
+      "schema": "AccountLog",
+      "description": "Administrative records of operations, drawdowns, and system events."
+    },
+    "payoutRequests": {
+      "schema": "object",
+      "description": "Payout disbursement requests initiated by funded accounts."
+    },
+    "coupons": {
+      "schema": "object",
+      "description": "Promotional codes for discounts on challenges."
+    },
+    "affiliateProfiles": {
+      "schema": "object",
+      "description": "Affiliate partner profiles, including links and clicks tracker."
+    },
+    "commissions": {
+      "schema": "object",
+      "description": "Partner referral commissions earned on checkout conversions."
+    },
+    "affiliatePayoutRequests": {
+      "schema": "object",
+      "description": "Affiliate partner payout requests."
+    }
+  }
+}

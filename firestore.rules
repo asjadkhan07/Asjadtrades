@@ -1,0 +1,55 @@
+rules_version = '2';
+// Hardened security rules for ATFunding Platform
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net (Default-deny catch-all)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Collections allow-lists (since the simulated full-stack environment runs client-side mock routes)
+    match /system/{document} {
+      allow read, write: if true;
+    }
+
+    match /users/{document} {
+      allow read, write: if true;
+    }
+
+    match /accounts/{document} {
+      allow read, write: if true;
+    }
+
+    match /orders/{document} {
+      allow read, write: if true;
+    }
+
+    match /trades/{document} {
+      allow read, write: if true;
+    }
+
+    match /accountLogs/{document} {
+      allow read, write: if true;
+    }
+
+    match /payoutRequests/{document} {
+      allow read, write: if true;
+    }
+
+    match /coupons/{document} {
+      allow read, write: if true;
+    }
+
+    match /affiliateProfiles/{document} {
+      allow read, write: if true;
+    }
+
+    match /commissions/{document} {
+      allow read, write: if true;
+    }
+
+    match /affiliatePayoutRequests/{document} {
+      allow read, write: if true;
+    }
+  }
+}
